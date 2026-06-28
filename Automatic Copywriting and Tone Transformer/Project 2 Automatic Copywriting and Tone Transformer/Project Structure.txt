@@ -1,0 +1,101 @@
+Project 2 - Automatic Copywriting and Tone Transformer/
+├── main.py              # Flask application
+├── requirements.txt     # Python dependencies
+├── .env                 # Environment variables
+├── .gitignore          # Git ignore rules
+├── README.md           # This file
+├── templates/
+│   └── index.html      # Frontend HTML
+├── static/
+│   ├── style.css       # CSS styling
+│   └── script.js       # JavaScript functionality
+└── utils/
+    ├── transformer.py  # Tone transformation logic
+    └── config.py       # Application configuration
+
+
+DecodeLabs Internship 2026
+
+
+---
+
+### File 6: `templates/index.html`
+
+**Location:** `Automatic Copywriting and Tone Transformer/templates/index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Copywriting and Tone Transformer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✍️ Automatic Copywriting & Tone Transformer</h1>
+            <p>Generate compelling copy with the perfect tone</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="form-group">
+                    <label for="prompt">What do you want to write about?</label>
+                    <textarea 
+                        id="prompt" 
+                        rows="4" 
+                        placeholder="E.g., 'A new eco-friendly water bottle that keeps drinks cold for 24 hours'"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="tone">Choose your tone:</label>
+                    <select id="tone">
+                        <option value="professional">Professional</option>
+                        <option value="casual">Casual</option>
+                        <option value="persuasive">Persuasive</option>
+                        <option value="informative">Informative</option>
+                        <option value="emotional">Emotional</option>
+                        <option value="humorous">Humorous</option>
+                    </select>
+                </div>
+
+                <button id="generateBtn" class="btn-primary">Generate Copy ✨</button>
+            </section>
+
+            <section class="output-section" id="outputSection" style="display: none;">
+                <h2>Your Generated Copy</h2>
+                <div id="outputContent" class="output-content"></div>
+                <div class="action-buttons">
+                    <button id="copyBtn" class="btn-secondary">📋 Copy to Clipboard</button>
+                    <button id="transformBtn" class="btn-secondary">🔄 Transform Tone</button>
+                </div>
+            </section>
+
+            <section class="transform-section" id="transformSection" style="display: none;">
+                <h2>Transform to Different Tone</h2>
+                <div class="form-group">
+                    <label for="transformTone">Select new tone:</label>
+                    <select id="transformTone">
+                        <option value="professional">Professional</option>
+                        <option value="casual">Casual</option>
+                        <option value="persuasive">Persuasive</option>
+                        <option value="informative">Informative</option>
+                        <option value="emotional">Emotional</option>
+                        <option value="humorous">Humorous</option>
+                    </select>
+                </div>
+                <button id="applyTransformBtn" class="btn-primary">Apply Transformation</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Google Gemini AI | DecodeLabs Internship 2026</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
