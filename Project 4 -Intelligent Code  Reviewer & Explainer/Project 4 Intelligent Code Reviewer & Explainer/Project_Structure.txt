@@ -1,0 +1,13 @@
+Intelligent-Code-Reviewer/
+│
+├── .env                        # Environment variables (API keys)
+├── .gitignore                  # Git ignore file
+├── README.md                   # Project documentation
+├── requirements.txt            # Python dependencies
+├── main.py                     # Main application file
+│
+├── sample_code.py              # Python sample with bugs
+├── sample_code.js              # JavaScript sample with bugs
+├── sample_code.java            # Java sample with bugs
+│
+└── Project_Structure.txt       # This file (project structure reference)
