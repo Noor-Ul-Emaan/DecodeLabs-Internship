@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimodal Image Generation Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1>🎨 Multimodal Image Studio</h1>
+                <p class="subtitle">by DecodeLabs | Batch 2026</p>
+            </div>
+            <div class="status">
+                <span class="status-dot"></span>
+                <span id="apiStatus">Ready</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Generation Controls -->
+            <section class="controls">
+                <div class="control-group">
+                    <label for="prompt">Prompt</label>
+                    <textarea id="prompt" rows="3" placeholder="Describe the image you want to generate..."></textarea>
+                    <span id="promptCounter">0/4000</span>
+                </div>
+
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="apiSelect">API</label>
+                        <select id="apiSelect">
+                            <option value="openai">OpenAI DALL-E 3</option>
+                            <option value="stability">Stability AI SD3</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="aspectRatio">Aspect Ratio</label>
+                        <select id="aspectRatio">
+                            <option value="1:1">1:1 Square</option>
+                            <option value="16:9">16:9 Landscape</option>
+                            <option value="9:16">9:16 Vertical</option>
+                            <option value="3:2">3:2 Classic</option>
+                            <option value="2:3">2:3 Portrait</option>
+                            <option value="21:9">21:9 Ultrawide</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="stylePreset">Style</label>
+                        <select id="stylePreset">
+                            <option value="photographic">Photographic</option>
+                            <option value="vivid">Vivid</option>
+                            <option value="natural">Natural</option>
+                            <option value="cyberpunk">Cyberpunk</option>
+                            <option value="minimalism">Minimalism</option>
+                            <option value="anime">Anime</option>
+                            <option value="oil-paint">Oil Paint</option>
+                            <option value="watercolor">Watercolor</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="qualitySelect">Quality</label>
+                        <select id="qualitySelect">
+                            <option value="standard">Standard</option>
+                            <option value="hd">HD</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="countSelect">Count</label>
+                        <select id="countSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generateBtn" class="btn-primary">
+                    <span class="btn-text">🚀 Generate</span>
+                    <span class="btn-loading" style="display:none;">⏳ Generating...</span>
+                </button>
+            </section>
+
+            <!-- Image Gallery -->
+            <section class="gallery">
+                <div class="gallery-header">
+                    <h2>Generated Images</h2>
+                    <div class="gallery-actions">
+                        <button id="clearGallery" class="btn-secondary">Clear All</button>
+                        <button id="downloadAll" class="btn-secondary">Download All</button>
+                    </div>
+                </div>
+                <div id="imageGrid" class="image-grid">
+                    <!-- Images will be rendered here -->
+                    <div class="empty-state">
+                        <p>No images generated yet</p>
+                        <p class="hint">Enter a prompt and click Generate to start creating</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generation History -->
+            <section class="history">
+                <h3>Generation History</h3>
+                <div id="historyList"></div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 DecodeLabs | Built with ❤️ for Generative AI Project 3</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
